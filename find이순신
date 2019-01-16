@@ -1,0 +1,81 @@
+package com.kh.silsub6.pdf;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class ArrayTestPdf {
+	Scanner sc = new Scanner(System.in);
+  public void test4() {
+		String[] sarr = new String[12];
+		sarr[0]="홍길동";
+		sarr[1]="이순신";
+		sarr[2]="유관순";
+		sarr[3]="윤봉길";
+		sarr[4]="장영실";
+		sarr[5]="임꺽정";
+		sarr[6]="장보고";
+		sarr[7]="이태백";
+		sarr[8]="김정희";
+		sarr[9]="대조영";
+		sarr[10]="김유신";
+		sarr[11]="이사부";
+		String[][] sarr1 = new String[3][2];
+		String[][] sarr2 = new String[3][2];
+		for(int i=0 ; i<sarr.length ; i++) {
+			int j=i/2;
+			int k=i%2;
+			if(j<3) {
+				sarr1[j][k]=sarr[i];
+			}
+			else{
+				j=j-3;
+				sarr2[j][k]=sarr[i];
+			}
+		}
+		System.out.println("===1분단===");
+		for(int i=0 ; i<sarr1.length;i++) {
+			for(int j=0; j<sarr1[i].length ; j++) {
+				System.out.print(sarr1[i][j]+"\t");
+			}
+			System.out.println();
+		}
+		System.out.println("===2분단===");
+		for(int i=0 ; i<sarr2.length;i++) {
+			for(int j=0; j<sarr2[i].length ; j++) {
+				System.out.print(sarr2[i][j]+"\t");
+			}
+			System.out.println();
+		}
+		System.out.print("찾을 이름을 입력하세요 : ");
+		String find=sc.nextLine();
+		for(int i=0 ; i< sarr.length ; i++) {
+			if(find.equals(sarr[i])) {
+				int j=i/2;
+				int k=i%2;
+				if(j<3) {
+					switch(j) {
+					case 0 : System.out.print("1분단 첫번째 줄");break; 
+					case 1 : System.out.print("1분단 두번째 줄"); break;
+					case 2 : System.out.print("1분단 세번째 줄"); break;
+						
+					}
+					
+				}
+				else {
+					j=i/2-3;
+					switch(j) {
+					case 0 : System.out.print("2분단 첫번째 줄"); break;
+					case 1 : System.out.print("2분단 두번째 줄"); break;
+					case 2 : System.out.print("2분단 세번째 줄"); break;
+						
+					}
+				}
+				switch(k) {
+				case 0 : System.out.print(" 왼쪽에 있습니다.");break;
+				case 1 : System.out.print(" 오른쪽에 있습니다.");break;
+				}
+				break;
+			}
+		}
+	}
+  
